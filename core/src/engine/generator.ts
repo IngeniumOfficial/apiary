@@ -78,8 +78,8 @@ export const applyBufferToRange = (
   range: SimpleRange,
   buffer: BufferConfig,
 ): SimpleRange => {
-  const beforeMs = buffer.beforeMinutes * 60 * 1000;
-  const afterMs = buffer.afterMinutes * 60 * 1000;
+  const beforeMs = buffer.beforeMinutes! * 60 * 1000;
+  const afterMs = buffer.afterMinutes! * 60 * 1000;
   return {
     // expand start backwards and end forwards
     start: new Date(range.start.getTime() - beforeMs),
