@@ -1,5 +1,6 @@
 {
   "private": true,
+  "type": "module",
   "packageManager": "pnpm@12.15.0",
   "devDependencies": {
     "vitest": "^5.0.5"
@@ -7,6 +8,7 @@
   "scripts": {
     "build": "pnpm --filter @apiary/core build && pnpm --filter @apiary/postgres build",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:integration": "vitest run --include '**/*.integration.test.ts'"
   }
 }

@@ -145,6 +145,15 @@ export class PostgresBookingRepository implements BookingRepository {
       Date.now() + this.holdDurationMinutes * 60 * 1000,
     );
 
+    // The exclusion constraint blocks any row with status IN ('hold', 'confirmed')
+    // regardless of expiry, so expire stale holds first or they would block slots forever.
+    await this.pool.query(
+      `UPDATE scheduling_bookings
+       SET status = 'expired'
+       WHERE status = 'hold' AND hold_expires_at <= now()`,
+      [],
+    );
+
     try {
       const result = await this.pool.query(
         `INSERT INTO scheduling_bookings

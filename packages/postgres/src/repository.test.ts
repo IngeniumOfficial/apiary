@@ -16,8 +16,8 @@ const repo = (pool: FakePool, holdDurationMinutes?: number) =>
     holdDurationMinutes === undefined ? {} : { holdDurationMinutes },
   );
 
-const queryArgs = (pool: FakePool): [string, unknown[]] =>
-  pool.query.mock.calls[0] as [string, unknown[]];
+const queryArgs = (pool: FakePool, callIndex = 0): [string, unknown[]] =>
+  pool.query.mock.calls[callIndex] as [string, unknown[]];
 
 describe("PostgresBookingRepository", () => {
   describe("getAvailableWindows (dynamic)", () => {
@@ -196,6 +196,7 @@ describe("PostgresBookingRepository", () => {
     it("creates a hold and returns the token and expiry", async () => {
       const pool = fakePool();
       const expiresAt = new Date("2026-01-05T10:10:00Z");
+      pool.query.mockResolvedValueOnce({ rows: [], rowCount: 0 }); // expire stale holds
       pool.query.mockResolvedValue({
         rows: [{ id: "hold-1", hold_expires_at: expiresAt }],
       });
@@ -211,7 +212,9 @@ describe("PostgresBookingRepository", () => {
       });
 
       expect(result).toEqual({ holdToken: "hold-1", expiresAt });
-      const [, params] = queryArgs(pool);
+      const [expireSql] = queryArgs(pool, 0);
+      expect(expireSql).toContain("status = 'expired'");
+      const [, params] = queryArgs(pool, 1);
       expect(params[0]).toBe("svc-1");
       expect(params[1]).toBe("provider-1");
       expect(params[2]).toEqual(new Date("2026-01-05T10:00:00Z"));
@@ -222,6 +225,7 @@ describe("PostgresBookingRepository", () => {
       const pool = fakePool();
       const violation = new Error("conflicting key value violates exclusion");
       (violation as { code?: string }).code = "23P01";
+      pool.query.mockResolvedValueOnce({ rows: [], rowCount: 0 }); // expire stale holds
       pool.query.mockRejectedValue(violation);
       const repository = repo(pool);
 
@@ -240,6 +244,7 @@ describe("PostgresBookingRepository", () => {
     it("rethrows unrelated database errors", async () => {
       const pool = fakePool();
       const dbError = new Error("connection refused");
+      pool.query.mockResolvedValueOnce({ rows: [], rowCount: 0 }); // expire stale holds
       pool.query.mockRejectedValue(dbError);
       const repository = repo(pool);
 
