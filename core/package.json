@@ -14,7 +14,7 @@
         "default": "./dist/index.js"
       },
       "require": {
-        "types": "./dist/index.d.ts",
+        "types": "./dist/index.d.cts",
         "default": "./dist/index.cjs"
       }
     }
@@ -25,5 +25,9 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
     "test": "vitest"
+  },
+  "devDependencies": {
+    "tsup": "^9.0.0",
+    "typescript": "^6.0.3"
   }
 }
