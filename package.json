@@ -7,8 +7,10 @@
   },
   "scripts": {
     "build": "pnpm --filter @apiary/core build && pnpm --filter @apiary/postgres build",
+    "typecheck": "pnpm --filter @apiary/core exec tsc -p tsconfig.json && pnpm --filter @apiary/postgres exec tsc -p tsconfig.json",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:integration": "vitest run --include '**/*.integration.test.ts'"
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "test:all": "pnpm test && pnpm test:integration"
   }
 }
