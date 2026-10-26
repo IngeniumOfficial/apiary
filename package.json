@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "devDependencies": {
+    "vitest": "^5.0.5"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  }
+}
