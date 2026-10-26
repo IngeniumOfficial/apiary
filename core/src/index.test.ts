@@ -20,5 +20,10 @@ describe("@apiary/core public API", () => {
 
   it("exports timezone utilities", () => {
     expect(typeof apiary.wallClockToUTC).toBe("function");
+    expect(typeof apiary.utcToWallClock).toBe("function");
+  });
+
+  it("exports the weekly rules expansion", () => {
+    expect(typeof apiary.expandWeeklyRules).toBe("function");
   });
 });

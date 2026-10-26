@@ -4,3 +4,4 @@ export * from "./rules/collisions.js";
 export * from "./engine/generator.js";
 export * from "./engine/calendar.js";
 export * from "./engine/timezone.js";
+export * from "./engine/weekly.js";

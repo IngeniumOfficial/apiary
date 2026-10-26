@@ -46,3 +46,35 @@ export const wallClockToUTC = (
 
   return new Date(utcGuess.getTime() + diffMs);
 };
+
+// Converts an exact UTC Date into wall-clock components in a specific IANA timezone
+/**
+ *
+ * @param {Date} date - Exact UTC Date
+ * @param {string} timeZone - IANA timezone
+ * @returns - Wall-clock components in the target timezone
+ */
+export const utcToWallClock = (date: Date, timeZone: string): WallClockTime => {
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  });
+
+  const parts = Object.fromEntries(
+    formatter.formatToParts(date).map((p) => [p.type, p.value]),
+  );
+
+  return {
+    year: Number(parts.year),
+    month: Number(parts.month),
+    day: Number(parts.day),
+    hour: parts.hour === "24" ? 0 : Number(parts.hour),
+    minute: Number(parts.minute),
+  };
+};

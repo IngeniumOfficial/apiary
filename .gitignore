@@ -1,1 +1,8 @@
-node_modules
+node_modules/
+dist/
+.turbo/
+*.tsbuildinfo
+.vitest-cache/
+.vite/
+coverage/
+*.log

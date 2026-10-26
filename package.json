@@ -1,5 +1,6 @@
 {
   "private": true,
+  "packageManager": "pnpm@12.15.0",
   "devDependencies": {
     "vitest": "^5.0.5"
   },
