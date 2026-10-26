@@ -1,0 +1,12 @@
+{
+  "name": "@apiary/postgres",
+  "version": "0.1.0",
+  "license": "ISC",
+  "exclude": [
+    "**/*.test.ts",
+    "tsconfig.json"
+  ],
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

@@ -7,6 +7,8 @@ export interface BookingRepository {
     endDate: Date;
     providerId?: string;
     mode: "dynamic" | "explicit";
+    /** IANA timezone the dynamic weekly rules are expressed in */
+    timeZone: string;
   }): Promise<AvailableWindow[]>;
 
   /** Fetch confirmed bookings and active holds in target window */
@@ -16,9 +18,10 @@ export interface BookingRepository {
     providerId?: string,
   ): Promise<TimeRange[]>;
 
-  /** Create an atomic 10-minute slot hold */
+  /** Create an atomic slot hold */
   createHold(params: {
     serviceId: string;
+    providerId: string;
     range: TimeRange;
     customerId?: string;
   }): Promise<{ holdToken: string; expiresAt: Date }>;

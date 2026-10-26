@@ -5,6 +5,7 @@
     "vitest": "^5.0.5"
   },
   "scripts": {
+    "build": "pnpm --filter @apiary/core build && pnpm --filter @apiary/postgres build",
     "test": "vitest run",
     "test:watch": "vitest"
   }
