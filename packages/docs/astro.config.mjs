@@ -4,9 +4,7 @@ import starlight from "@astrojs/starlight";
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: set `site` once the production docs URL is known (e.g. on
-  // Cloudflare Pages) to enable the sitemap and correct canonical URLs:
-  //   site: "https://apiary.example.com",
+  site: "https://apiary-f4n.pages.dev/",
   integrations: [
     starlight({
       title: "Apiary",
