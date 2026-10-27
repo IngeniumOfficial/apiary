@@ -5,15 +5,13 @@ collision and buffer math, timezone-safe weekly rules, and headless calendar
 grids.
 
 - No runtime dependencies; built on `Date` and `Intl`
-- TypeScript-first: bundled ESM/CJS with types on npm, native source on JSR
+- TypeScript-first: bundled ESM/CJS with types on npm
 - Runs on Node.js, Deno, Bun, and Cloudflare Workers
 
 ## Install
 
 ```bash
 pnpm add @apiary/core
-# or, from the JSR registry:
-pnpm dlx jsr add @apiary/core
 ```
 
 ## Example

@@ -14,8 +14,7 @@ reservation - as small, tested, framework-agnostic TypeScript packages.
   shift-based *explicit availability*, unified behind one slot generator.
 - **Race-proof by default**: the PostgreSQL adapter enforces double-booking
   prevention with GIST exclusion constraints at the database level.
-- **Dual distribution**: bundled ESM/CJS with types on npm, native TypeScript
-  source on JSR.
+- **Typed ESM/CJS**: bundled ESM and CJS with type declarations on npm.
 
 ## Packages
 

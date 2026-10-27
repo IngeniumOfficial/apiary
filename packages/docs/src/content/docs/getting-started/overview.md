@@ -30,8 +30,8 @@ and a `reason` explaining why it is open or blocked.
 
 ## Packages
 
-The repository is a pnpm workspace. Each package is published to both npm
-(bundled ESM/CJS + types) and JSR (native TypeScript source).
+The repository is a pnpm workspace. Each package is published to npm as
+bundled ESM/CJS with type declarations.
 
 | Package | Status | Purpose |
 | --- | --- | --- |

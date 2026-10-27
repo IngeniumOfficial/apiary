@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: Installing Apiary packages from npm or JSR.
+description: Installing Apiary packages from npm.
 ---
 
 ## Runtime requirements
@@ -27,12 +27,6 @@ yarn add @apiary/core
 bun add @apiary/core
 ```
 
-Or from the JSR registry:
-
-```bash
-pnpm dlx jsr add @apiary/core
-```
-
 The npm package ships **ESM and CJS** bundles plus type declarations. Import
 from either module system:
 
@@ -40,13 +34,6 @@ from either module system:
 import { generateTimeSlots } from "@apiary/core"; // ESM
 
 const { rangesOverlap } = require("@apiary/core"); // CJS
-```
-
-On JSR, subpath entrypoints are also available:
-
-```ts
-import { generateTimeSlots } from "@apiary/core/engine";
-import { rangesOverlap } from "@apiary/core/rules";
 ```
 
 ## `@apiary/postgres`

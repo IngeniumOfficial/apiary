@@ -296,12 +296,3 @@ interface CalendarDay {
   blockReason?: "OUT_OF_BOUNDS" | "CUSTOM_EXCLUSION" | "PAST_DATE";
 }
 ```
-
-## Subpath entrypoints
-
-On JSR (and via the built packages), subpaths are available:
-
-```ts
-import { generateTimeSlots } from "@apiary/core/engine";
-import { rangesOverlap } from "@apiary/core/rules";
-```
