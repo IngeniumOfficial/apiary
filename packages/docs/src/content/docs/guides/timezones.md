@@ -11,7 +11,7 @@ the platform rather than by hand-rolled offset tables.
 ## The two conversions
 
 ```ts
-import { wallClockToUTC, utcToWallClock } from "@apiary/core";
+import { wallClockToUTC, utcToWallClock } from "@apiary-dev/core";
 ```
 
 - `wallClockToUTC({ year, month, day, hour, minute }, timeZone)` — an exact

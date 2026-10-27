@@ -1,6 +1,6 @@
 ---
-title: "@apiary/core Reference"
-description: Every type and function exported by @apiary/core.
+title: "@apiary-dev/core Reference"
+description: Every type and function exported by @apiary-dev/core.
 ---
 
 The core package is a zero-dependency module of pure domain logic. All ranges
@@ -114,7 +114,7 @@ interface WallClockTime {
 ### `BookingRepository`
 
 The persistence port implemented by adapters such as
-[`@apiary/postgres`](reference/postgres/):
+[`@apiary-dev/postgres`](reference/postgres/):
 
 ```ts
 interface BookingRepository {

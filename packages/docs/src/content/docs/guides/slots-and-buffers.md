@@ -46,7 +46,7 @@ A slot that passes all four rules is `AVAILABLE`.
 Buffers are applied symmetrically:
 
 ```ts
-import { applyBufferToRange } from "@apiary/core";
+import { applyBufferToRange } from "@apiary-dev/core";
 
 const buffered = applyBufferToRange(
   { start: new Date("2026-01-05T10:00:00Z"), end: new Date("2026-01-05T10:30:00Z") },
@@ -82,7 +82,7 @@ All ranges are half-open `[start, end)`: a booking ending at exactly 10:00 and a
 slot starting at exactly 10:00 do **not** collide. `rangesOverlap` encodes this:
 
 ```ts
-import { rangesOverlap } from "@apiary/core";
+import { rangesOverlap } from "@apiary-dev/core";
 
 rangesOverlap(
   { start: at("09:00"), end: at("10:00") },

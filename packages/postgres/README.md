@@ -1,4 +1,4 @@
-# @apiary/postgres
+# @apiary-dev/postgres
 
 PostgreSQL adapter implementing Apiary's `BookingRepository` port, with
 double-booking prevention enforced at the database level.
@@ -11,7 +11,7 @@ double-booking prevention enforced at the database level.
 ## Install
 
 ```bash
-pnpm add @apiary/postgres pg
+pnpm add @apiary-dev/postgres pg
 ```
 
 ## Setup
@@ -19,7 +19,7 @@ pnpm add @apiary/postgres pg
 Apply the migration before using the repository:
 
 ```bash
-psql "$DATABASE_URL" -f node_modules/@apiary/postgres/src/migrations/001_init.sql
+psql "$DATABASE_URL" -f node_modules/@apiary-dev/postgres/src/migrations/001_init.sql
 ```
 
 The migration creates `scheduling_business_hours`, `scheduling_shifts`, and
@@ -30,7 +30,7 @@ The migration creates `scheduling_business_hours`, `scheduling_shifts`, and
 
 ```ts
 import { Pool } from "pg";
-import { PostgresBookingRepository } from "@apiary/postgres";
+import { PostgresBookingRepository } from "@apiary-dev/postgres";
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const bookings = new PostgresBookingRepository(pool, {

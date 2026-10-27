@@ -29,7 +29,7 @@ with what users see in their own timezone.
 ## Month grid
 
 ```ts
-import { buildMonthMatrix } from "@apiary/core";
+import { buildMonthMatrix } from "@apiary-dev/core";
 
 const grid = buildMonthMatrix({
   year: 2026,
@@ -46,7 +46,7 @@ grid heights consistent between months.
 ## Week grid
 
 ```ts
-import { buildWeekMatrix } from "@apiary/core";
+import { buildWeekMatrix } from "@apiary-dev/core";
 
 const week = buildWeekMatrix({
   targetDate: new Date(2026, 0, 14), // any date in the target week
@@ -61,7 +61,7 @@ week spanning a month boundary renders honestly.
 ## Multi-week and multi-month ranges
 
 ```ts
-import { buildMultiWeekMatrix, buildMultiMonthMatrix } from "@apiary/core";
+import { buildMultiWeekMatrix, buildMultiMonthMatrix } from "@apiary-dev/core";
 
 const weeks = buildMultiWeekMatrix({
   startDate: new Date(2026, 0, 14),

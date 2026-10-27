@@ -1,4 +1,4 @@
-# @apiary/core
+# @apiary-dev/core
 
 Zero-dependency, framework-agnostic scheduling domain logic: slot generation,
 collision and buffer math, timezone-safe weekly rules, and headless calendar
@@ -11,7 +11,7 @@ grids.
 ## Install
 
 ```bash
-pnpm add @apiary/core
+pnpm add @apiary-dev/core
 ```
 
 ## Example
@@ -19,7 +19,7 @@ pnpm add @apiary/core
 Carve an operating window into bookable slots:
 
 ```ts
-import { generateTimeSlots } from "@apiary/core";
+import { generateTimeSlots } from "@apiary-dev/core";
 
 const slots = generateTimeSlots({
   windows: [
@@ -40,7 +40,7 @@ const slots = generateTimeSlots({
 Expand weekly recurring rules into windows:
 
 ```ts
-import { expandWeeklyRules } from "@apiary/core";
+import { expandWeeklyRules } from "@apiary-dev/core";
 
 const windows = expandWeeklyRules({
   rules: [{ dayOfWeek: 1, startTime: "09:00", endTime: "17:00" }],

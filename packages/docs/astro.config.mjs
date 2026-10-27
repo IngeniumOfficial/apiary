@@ -48,8 +48,8 @@ export default defineConfig({
         {
           label: "Reference",
           items: [
-            { label: "@apiary/core", slug: "reference/core" },
-            { label: "@apiary/postgres", slug: "reference/postgres" },
+            { label: "@apiary-dev/core", slug: "reference/core" },
+            { label: "@apiary-dev/postgres", slug: "reference/postgres" },
           ],
         },
       ],

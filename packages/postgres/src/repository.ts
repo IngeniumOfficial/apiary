@@ -4,8 +4,8 @@ import type {
   BookingRepository,
   TimeRange,
   WeeklyRule,
-} from "@apiary/core";
-import { expandWeeklyRules } from "@apiary/core";
+} from "@apiary-dev/core";
+import { expandWeeklyRules } from "@apiary-dev/core";
 
 export class BookingConflictError extends Error {
   constructor(

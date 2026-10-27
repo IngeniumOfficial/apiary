@@ -1,16 +1,16 @@
 ---
 title: PostgreSQL Adapter
-description: Schema, holds, confirmation, and database-level race protection with @apiary/postgres.
+description: Schema, holds, confirmation, and database-level race protection with @apiary-dev/postgres.
 ---
 
-`@apiary/postgres` implements the core `BookingRepository` port against
+`@apiary-dev/postgres` implements the core `BookingRepository` port against
 PostgreSQL, with double-booking prevention enforced **at the database level**
 using GIST exclusion constraints.
 
 ## Install
 
 ```bash
-pnpm add @apiary/postgres pg
+pnpm add @apiary-dev/postgres pg
 ```
 
 ## Schema
@@ -40,7 +40,7 @@ Postgres itself** — no application-level locking, no race windows.
 
 ```ts
 import { Pool } from "pg";
-import { PostgresBookingRepository } from "@apiary/postgres";
+import { PostgresBookingRepository } from "@apiary-dev/postgres";
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const bookings = new PostgresBookingRepository(pool, {

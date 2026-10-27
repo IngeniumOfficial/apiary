@@ -1,9 +1,9 @@
 ---
-title: "@apiary/postgres Reference"
+title: "@apiary-dev/postgres Reference"
 description: "The PostgreSQL adapter: repository, options, and error types."
 ---
 
-`@apiary/postgres` implements the core [`BookingRepository`](reference/core/#bookingrepository)
+`@apiary-dev/postgres` implements the core [`BookingRepository`](reference/core/#bookingrepository)
 port using `node-postgres`. See the [PostgreSQL guide](guides/postgres/) for
 setup, the schema, and behavior notes.
 

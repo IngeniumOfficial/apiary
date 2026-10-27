@@ -20,7 +20,7 @@ together:
    range:
 
 ```ts
-import { expandWeeklyRules } from "@apiary/core";
+import { expandWeeklyRules } from "@apiary-dev/core";
 
 const windows = expandWeeklyRules({
   rules: [

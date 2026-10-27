@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import * as apiary from "./index.js";
 
-describe("@apiary/core public API", () => {
+describe("@apiary-dev/core public API", () => {
   it("exports the collision rules", () => {
     expect(typeof apiary.rangesOverlap).toBe("function");
     expect(typeof apiary.applyBufferToRange).toBe("function");

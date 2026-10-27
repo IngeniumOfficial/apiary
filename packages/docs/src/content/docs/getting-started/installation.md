@@ -9,40 +9,40 @@ Apiary targets any runtime with modern Web Standard support: **Node.js 18+**,
 **Deno**, **Bun**, or **Cloudflare Workers**. The core package has **no runtime
 dependencies**.
 
-## `@apiary/core`
+## `@apiary-dev/core`
 
 Install with your package manager of choice:
 
 ```bash
 # pnpm
-pnpm add @apiary/core
+pnpm add @apiary-dev/core
 
 # npm
-npm install @apiary/core
+npm install @apiary-dev/core
 
 # yarn
-yarn add @apiary/core
+yarn add @apiary-dev/core
 
 # bun
-bun add @apiary/core
+bun add @apiary-dev/core
 ```
 
 The npm package ships **ESM and CJS** bundles plus type declarations. Import
 from either module system:
 
 ```ts
-import { generateTimeSlots } from "@apiary/core"; // ESM
+import { generateTimeSlots } from "@apiary-dev/core"; // ESM
 
-const { rangesOverlap } = require("@apiary/core"); // CJS
+const { rangesOverlap } = require("@apiary-dev/core"); // CJS
 ```
 
-## `@apiary/postgres`
+## `@apiary-dev/postgres`
 
 The PostgreSQL adapter is a regular npm package. It depends on `pg`
 (node-postgres), which you install alongside it:
 
 ```bash
-pnpm add @apiary/postgres pg
+pnpm add @apiary-dev/postgres pg
 ```
 
 Then apply the migration and pass a `pg.Pool` to the repository. See the

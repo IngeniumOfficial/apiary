@@ -1,6 +1,6 @@
 ---
 title: Quickstart
-description: Generate bookable slots in a few lines with @apiary/core.
+description: Generate bookable slots in a few lines with @apiary-dev/core.
 ---
 
 ## Slots from a window
@@ -9,7 +9,7 @@ The fastest way to see Apiary in action is to carve a single operating window
 into bookable slots:
 
 ```ts
-import { generateTimeSlots } from "@apiary/core";
+import { generateTimeSlots } from "@apiary-dev/core";
 
 const now = new Date("2026-01-05T08:00:00Z");
 
@@ -56,7 +56,7 @@ Real systems rarely hand you windows directly. `expandWeeklyRules` turns
 recurring weekly rules into windows for a date range:
 
 ```ts
-import { expandWeeklyRules } from "@apiary/core";
+import { expandWeeklyRules } from "@apiary-dev/core";
 
 const windows = expandWeeklyRules({
   rules: [
@@ -97,7 +97,7 @@ a full `BookingRepository`:
 
 ```ts
 import { Pool } from "pg";
-import { PostgresBookingRepository } from "@apiary/postgres";
+import { PostgresBookingRepository } from "@apiary-dev/postgres";
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const bookings = new PostgresBookingRepository(pool);

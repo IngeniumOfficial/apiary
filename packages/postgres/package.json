@@ -1,5 +1,5 @@
 {
-  "name": "@apiary/postgres",
+  "name": "@apiary-dev/postgres",
   "version": "0.1.0",
   "description": "Apiary PostgreSQL adapter implementing the core BookingRepository port",
   "license": "ISC",
@@ -28,7 +28,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@apiary/core": "workspace:*",
+    "@apiary-dev/core": "workspace:*",
     "pg": "^8.23.1"
   },
   "devDependencies": {

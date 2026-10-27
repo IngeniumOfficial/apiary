@@ -35,11 +35,11 @@ bundled ESM/CJS with type declarations.
 
 | Package | Status | Purpose |
 | --- | --- | --- |
-| [`@apiary/core`](reference/core/) | ✅ Implemented | Pure domain logic: types, slot generation, collision and buffer math, weekly rule expansion, timezone conversions, calendar grids. Zero runtime dependencies. |
-| [`@apiary/postgres`](reference/postgres/) | ✅ Implemented | PostgreSQL adapter implementing the core `BookingRepository` port with database-level race protection. |
-| `@apiary/server` | Planned | Web-standard `Request` → `Response` dispatcher for `/slots`, `/holds`, `/bookings`. |
-| `@apiary/client` | Planned | Typed fetch SDK for the server endpoints. |
-| `@apiary/solid` | Planned | Unstyled SolidJS calendar and booking widgets. |
+| [`@apiary-dev/core`](reference/core/) | ✅ Implemented | Pure domain logic: types, slot generation, collision and buffer math, weekly rule expansion, timezone conversions, calendar grids. Zero runtime dependencies. |
+| [`@apiary-dev/postgres`](reference/postgres/) | ✅ Implemented | PostgreSQL adapter implementing the core `BookingRepository` port with database-level race protection. |
+| `@apiary-dev/server` | Planned | Web-standard `Request` → `Response` dispatcher for `/slots`, `/holds`, `/bookings`. |
+| `@apiary-dev/client` | Planned | Typed fetch SDK for the server endpoints. |
+| `@apiary-dev/solid` | Planned | Unstyled SolidJS calendar and booking widgets. |
 
 ## The dual availability model
 

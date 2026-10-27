@@ -20,24 +20,24 @@ reservation - as small, tested, framework-agnostic TypeScript packages.
 
 | Package | Description | Status |
 | --- | --- | --- |
-| [`@apiary/core`](packages/core) | Pure domain logic: slot generation, buffers, collisions, timezone math, weekly rule expansion, calendar grids | ✅ |
-| [`@apiary/postgres`](packages/postgres) | PostgreSQL adapter implementing the core `BookingRepository` port | ✅ |
-| `@apiary/server` | Web-standard `Request` -> `Response` dispatcher | 🚧 planned |
-| `@apiary/client` | Typed fetch SDK | 🚧 planned |
-| `@apiary/solid` | SolidJS calendar & booking widgets | 🚧 planned |
+| [`@apiary-dev/core`](packages/core) | Pure domain logic: slot generation, buffers, collisions, timezone math, weekly rule expansion, calendar grids | ✅ |
+| [`@apiary-dev/postgres`](packages/postgres) | PostgreSQL adapter implementing the core `BookingRepository` port | ✅ |
+| `@apiary-dev/server` | Web-standard `Request` -> `Response` dispatcher | 🚧 planned |
+| `@apiary-dev/client` | Typed fetch SDK | 🚧 planned |
+| `@apiary-dev/solid` | SolidJS calendar & booking widgets | 🚧 planned |
 
 ## Quick start
 
 Install the core package:
 
 ```bash
-pnpm add @apiary/core
+pnpm add @apiary-dev/core
 ```
 
 Generate bookable slots from an operating window:
 
 ```ts
-import { generateTimeSlots } from "@apiary/core";
+import { generateTimeSlots } from "@apiary-dev/core";
 
 const slots = generateTimeSlots(
   {
@@ -67,7 +67,7 @@ const open = slots.filter((s) => s.available);
 Turn weekly rules into windows, then into slots:
 
 ```ts
-import { expandWeeklyRules, generateTimeSlots } from "@apiary/core";
+import { expandWeeklyRules, generateTimeSlots } from "@apiary-dev/core";
 
 const windows = expandWeeklyRules({
   rules: [{ dayOfWeek: 1, startTime: "09:00", endTime: "17:00" }],
@@ -94,8 +94,8 @@ Full documentation - guides, API reference, and examples - is available at
 - [Slots, Buffers & Rules](https://apiary-f4n.pages.dev/guides/slots-and-buffers/)
 - [Timezones & DST](https://apiary-f4n.pages.dev/guides/timezones/)
 - [PostgreSQL adapter](https://apiary-f4n.pages.dev/guides/postgres/)
-- [`@apiary/core` reference](https://apiary-f4n.pages.dev/reference/core/)
-- [`@apiary/postgres` reference](https://apiary-f4n.pages.dev/reference/postgres/)
+- [`@apiary-dev/core` reference](https://apiary-f4n.pages.dev/reference/core/)
+- [`@apiary-dev/postgres` reference](https://apiary-f4n.pages.dev/reference/postgres/)
 
 ## Development
 

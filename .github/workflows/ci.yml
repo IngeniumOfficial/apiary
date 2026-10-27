@@ -45,7 +45,7 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      # @apiary/postgres resolves @apiary/core through its built dist/, so build first.
+      # @apiary-dev/postgres resolves @apiary-dev/core through its built dist/, so build first.
       - run: pnpm build
 
       - name: Unit tests

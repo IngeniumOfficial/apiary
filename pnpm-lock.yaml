@@ -196,7 +196,7 @@ importers:
 
   packages/postgres:
     dependencies:
-      '@apiary/core':
+      '@apiary-dev/core':
         specifier: workspace:*
         version: link:../core
       pg:
