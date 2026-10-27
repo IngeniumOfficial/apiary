@@ -11,6 +11,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:integration": "vitest run --config vitest.integration.config.ts",
-    "test:all": "pnpm test && pnpm test:integration"
+    "test:all": "pnpm test && pnpm test:integration",
+    "publish": "pnpm build && pnpm -r publish --access public --force",
+    "publish:dry": "pnpm build && pnpm -r publish --dry-run --access public --force --no-git-checks"
   }
 }
