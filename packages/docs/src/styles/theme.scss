@@ -1,0 +1,60 @@
+/* Apiary theme — amber / beehive palette.
+ * Starlight exposes accent tokens as CSS custom properties; we only need to
+ * override the three accent steps plus a couple of component tweaks.
+ */
+
+:root {
+  /* Light theme */
+  --sl-color-accent-low: #fde8c6;
+  --sl-color-accent: #d97706;
+  --sl-color-accent-high: #92400e;
+
+  --sl-color-banner-text: #431407;
+
+  --sl-badge-accent-bg: #fde8c6;
+
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  /* Dark theme */
+  --sl-color-accent-low: #431407;
+  --sl-color-accent: #f59e0b;
+  --sl-color-accent-high: #fcd34d;
+
+  --sl-color-banner-text: #fde8c6;
+
+  --sl-badge-accent-bg: #431407;
+}
+
+/* Landing hero accent */
+.hero {
+  padding-block-start: 3rem;
+}
+
+/* Soften the tagline to the accent tint in both themes */
+.hero h1 {
+  color: var(--sl-color-accent-high);
+}
+
+.hero p.tagline {
+  color: var(--sl-color-text);
+  font-size: var(--sl-text-lg);
+}
+
+/* Honeycomb-striped section on the splash hero for a subtle thematic touch */
+.hero img {
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 0.15);
+}
+
+/* Cards on the splash use the accent low as their icon tint */
+.card .icon {
+  color: var(--sl-color-accent);
+}
+
+/* Selection color to match the theme */
+::selection {
+  background-color: var(--sl-color-accent);
+  color: var(--sl-color-black);
+}
