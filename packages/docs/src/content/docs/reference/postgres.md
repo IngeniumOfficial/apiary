@@ -1,11 +1,13 @@
 ---
 title: "@apiary-dev/postgres Reference"
-description: "The PostgreSQL adapter: repository, options, and error types."
+description: "The PostgreSQL adapter: repository, options, and error types — with examples."
 ---
 
 `@apiary-dev/postgres` implements the core [`BookingRepository`](reference/core/#bookingrepository)
 port using `node-postgres`. See the [PostgreSQL guide](guides/postgres/) for
-setup, the schema, and behavior notes.
+setup, the schema, and behavior notes. In most apps you pass this repository to
+`createApiary` rather than calling it directly — see
+[Using Apiary in an App](guides/using-apiary-in-an-app/).
 
 ## `PostgresBookingRepository`
 
@@ -17,6 +19,19 @@ class PostgresBookingRepository implements BookingRepository {
 
 Takes a `pg.Pool` instance — you own its lifecycle (create, configure, and
 `pool.end()` it yourself).
+
+**Example — construct the repository:**
+
+```ts
+import { Pool } from "pg";
+import { PostgresBookingRepository } from "@apiary-dev/postgres";
+
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+
+const repository = new PostgresBookingRepository(pool, {
+  holdDurationMinutes: 10, // optional, default 10
+});
+```
 
 ### `getAvailableWindows`
 
@@ -37,6 +52,31 @@ getAvailableWindows(params: {
 - **`mode: "explicit"`** — reads `scheduling_shifts` where `is_published =
   true`, overlapping the requested range, clipped to it, and sorted.
 
+**Example — dynamic business hours:**
+
+```ts
+const windows = await repository.getAvailableWindows({
+  startDate: new Date("2026-01-05T00:00:00Z"),
+  endDate: new Date("2026-01-12T00:00:00Z"),
+  providerId,
+  mode: "dynamic",
+  timeZone: "America/New_York",
+});
+// -> AvailableWindow[] (UTC Dates)
+```
+
+**Example — explicit published shifts:**
+
+```ts
+const windows = await repository.getAvailableWindows({
+  startDate,
+  endDate,
+  providerId,
+  mode: "explicit",
+  timeZone: "America/New_York",
+});
+```
+
 ### `getBookingsInRange`
 
 ```ts
@@ -49,6 +89,21 @@ getBookingsInRange(
 
 Returns confirmed bookings and **active** holds overlapping the range. Expired
 holds (`hold_expires_at <= now()`) are excluded.
+
+**Example — feed existing bookings into the slot generator:**
+
+```ts
+import { generateTimeSlots } from "@apiary-dev/core";
+
+const bookings = await repository.getBookingsInRange(startDate, endDate, providerId);
+
+const slots = generateTimeSlots({
+  windows,
+  existingBookings: bookings,
+  durationMinutes: 30,
+  intervalMinutes: 15,
+});
+```
 
 ### `createHold`
 
@@ -67,6 +122,25 @@ and surfaced as [`BookingConflictError`](#bookingconflicterror). Before
 inserting, expired holds are marked `'expired'` so stale rows never block
 slots. `holdToken` is the booking row's UUID.
 
+**Example — reserve a slot:**
+
+```ts
+import { BookingConflictError } from "@apiary-dev/postgres";
+
+try {
+  const { holdToken, expiresAt } = await repository.createHold({
+    serviceId,
+    providerId,
+    range: { start: slot.start, end: slot.end },
+    customerId,
+  });
+} catch (error) {
+  if (error instanceof BookingConflictError) {
+    // the slot was taken by another hold/booking
+  }
+}
+```
+
 ### `confirmBooking`
 
 ```ts
@@ -79,6 +153,15 @@ confirmBooking(params: {
 Transitions a hold to `confirmed`, storing `customerDetails` in the
 `customer_details` JSONB column. Fails with `BookingConflictError` when the
 hold is missing or expired. `bookingId` equals the original `holdToken`.
+
+**Example — turn a hold into a booking:**
+
+```ts
+const { bookingId } = await repository.confirmBooking({
+  holdToken,
+  customerDetails: { name: "Ada Lovelace", email: "ada@example.com" },
+});
+```
 
 ## `PostgresBookingRepositoryOptions`
 

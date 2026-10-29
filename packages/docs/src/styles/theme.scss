@@ -58,3 +58,48 @@ html[data-theme="dark"] {
   background-color: var(--sl-color-accent);
   color: var(--sl-color-black);
 }
+
+/* ---------------------------------------------------------------------------
+ * Mobile scrolling
+ * Starlight's mobile breakpoint is 50rem. Wide code blocks, tables, and the
+ * navigation overlay need their own scroll containers so the page never
+ * scrolls sideways and touch scrolling feels native.
+ * ------------------------------------------------------------------------- */
+@media (max-width: 50rem) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Long code samples scroll inside the block, not the page */
+  .sl-markdown-content pre,
+  .sl-markdown-content .expressive-code,
+  .sl-markdown-content .expressive-code pre {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Tables become horizontally scrollable instead of overflowing the viewport */
+  .sl-markdown-content table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Mobile navigation and sidebars scroll smoothly and don't chain to the page */
+  dialog,
+  .sidebar-pane,
+  .right-sidebar,
+  nav {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  /* Keep long inline code from forcing a horizontal page scroll */
+  .sl-markdown-content code {
+    word-break: break-word;
+  }
+}
+

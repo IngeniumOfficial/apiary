@@ -41,6 +41,18 @@ bundled ESM/CJS with type declarations.
 | `@apiary-dev/client` | Planned | Typed fetch SDK for the server endpoints. |
 | `@apiary-dev/solid` | Planned | Unstyled SolidJS calendar and booking widgets. |
 
+## How the pieces fit together
+
+- **`@apiary-dev/core`** is pure math — no I/O, usable anywhere.
+- **`@apiary-dev/postgres`** is the storage adapter (server only).
+- **`@apiary-dev/server`** combines the two into use cases (`getSlots`,
+  `createHold`, `confirmBooking`, …).
+- **Your app** wires those use cases into routes, server functions, and UI.
+
+The browser never touches the database. See
+[Using Apiary in an App](guides/using-apiary-in-an-app/) for a complete,
+end-to-end walkthrough of a booking flow.
+
 ## The dual availability model
 
 Apiary natively supports two operational strategies, unified behind one core

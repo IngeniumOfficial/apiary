@@ -59,3 +59,5 @@ Availability flows through two pure steps:
 The [PostgreSQL adapter](guides/postgres/) turns this into a full booking backend with atomic holds and confirmation, while the pure core stays framework- and storage-agnostic.
 
 The [`@apiary-dev/server`](guides/server-integration/) package binds a `BookingRepository` to these steps, exposing transport-agnostic operations (`getSlots`, `isRangeAvailable`, `createHold`, `confirmBooking`) you can call from any framework — no router or adapter required.
+
+New here? Read [Using Apiary in an App](guides/using-apiary-in-an-app/) for an end-to-end walkthrough of where each piece lives and how a booking flows from the browser to the database.

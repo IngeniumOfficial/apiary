@@ -38,6 +38,7 @@ export default defineConfig({
         {
           label: "Guides",
           items: [
+            { label: "Using Apiary in an App", slug: "guides/using-apiary-in-an-app" },
             { label: "The Dual Availability Model", slug: "guides/dual-model" },
             { label: "Slots, Buffers & Rules", slug: "guides/slots-and-buffers" },
             { label: "Timezones & DST", slug: "guides/timezones" },
