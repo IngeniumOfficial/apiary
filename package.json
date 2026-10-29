@@ -13,6 +13,6 @@
     "test:integration": "vitest run --config vitest.integration.config.ts",
     "test:all": "pnpm test && pnpm test:integration",
     "publish": "pnpm build && pnpm -r publish --access public",
-    "publish:dry": "pnpm build && pnpm -r publish --dry-run --access public --force --no-git-checks"
+    "publish:dry": "pnpm build && pnpm -r publish --dry-run --access public --no-git-checks"
   }
 }
