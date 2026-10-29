@@ -26,4 +26,9 @@ describe("@apiary-dev/core public API", () => {
   it("exports the weekly rules expansion", () => {
     expect(typeof apiary.expandWeeklyRules).toBe("function");
   });
+
+  it("exports the domain errors", () => {
+    expect(typeof apiary.BookingConflictError).toBe("function");
+    expect(typeof apiary.ValidationError).toBe("function");
+  });
 });

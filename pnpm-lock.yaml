@@ -213,6 +213,19 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3
 
+  packages/server:
+    dependencies:
+      '@apiary-dev/core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
+      tsup:
+        specifier: ^9.0.0
+        version: 9.0.0(postcss@8.5.31)(typescript@6.0.3)(yaml@2.9.1)
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+
 packages:
 
   '@astrojs/compiler-binding-android-arm64@0.5.2':

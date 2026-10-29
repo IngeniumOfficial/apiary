@@ -22,7 +22,7 @@ reservation - as small, tested, framework-agnostic TypeScript packages.
 | --- | --- | --- |
 | [`@apiary-dev/core`](packages/core) | Pure domain logic: slot generation, buffers, collisions, timezone math, weekly rule expansion, calendar grids | ✅ |
 | [`@apiary-dev/postgres`](packages/postgres) | PostgreSQL adapter implementing the core `BookingRepository` port | ✅ |
-| `@apiary-dev/server` | Web-standard `Request` -> `Response` dispatcher | 🚧 planned |
+| [`@apiary-dev/server`](packages/server) | Transport-agnostic scheduling operations (slots, holds, confirmations) | ✅ |
 | `@apiary-dev/client` | Typed fetch SDK | 🚧 planned |
 | `@apiary-dev/solid` | SolidJS calendar & booking widgets | 🚧 planned |
 
@@ -103,7 +103,7 @@ This is a pnpm workspace:
 
 ```bash
 pnpm install              # install all packages
-pnpm build                # build core + postgres
+pnpm build                # build core + postgres + server
 pnpm test                 # unit tests
 pnpm test:integration     # integration tests (needs a configured Postgres)
 pnpm typecheck            # typecheck all packages
@@ -116,9 +116,9 @@ configured.
 
 ## Status
 
-The core engine and the PostgreSQL adapter are implemented, tested, and
-documented. The server dispatcher, client SDK, and SolidJS widgets are planned.
-Contributions toward any of these are welcome.
+The core engine, the PostgreSQL adapter, and the transport-agnostic server
+operations are implemented, tested, and documented. The client SDK and SolidJS
+widgets are planned. Contributions toward any of these are welcome.
 
 ## Contributing
 

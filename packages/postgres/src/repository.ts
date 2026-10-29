@@ -5,16 +5,9 @@ import type {
   TimeRange,
   WeeklyRule,
 } from "@apiary-dev/core";
-import { expandWeeklyRules } from "@apiary-dev/core";
+import { BookingConflictError, expandWeeklyRules } from "@apiary-dev/core";
 
-export class BookingConflictError extends Error {
-  constructor(
-    message = "Requested slot overlaps an existing booking or hold",
-  ) {
-    super(message);
-    this.name = "BookingConflictError";
-  }
-}
+export { BookingConflictError } from "@apiary-dev/core";
 
 export interface PostgresBookingRepositoryOptions {
   /** How long a created hold reserves a slot, in minutes (default: 10). */
