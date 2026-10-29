@@ -10,21 +10,21 @@ reservation - as small, tested, framework-agnostic TypeScript packages.
 
 - **Zero runtime dependencies** in the core. Built on `Date`, `Intl`, and other
   Web Standard APIs; runs on Node.js, Deno, Bun, and Cloudflare Workers.
-- **Two availability models**: Calendly-style *dynamic rules* and
-  shift-based *explicit availability*, unified behind one slot generator.
+- **Two availability models**: Calendly-style _dynamic rules_ and
+  shift-based _explicit availability_, unified behind one slot generator.
 - **Race-proof by default**: the PostgreSQL adapter enforces double-booking
   prevention with GIST exclusion constraints at the database level.
 - **Typed ESM/CJS**: bundled ESM and CJS with type declarations on npm.
 
 ## Packages
 
-| Package | Description | Status |
-| --- | --- | --- |
-| [`@apiary-dev/core`](packages/core) | Pure domain logic: slot generation, buffers, collisions, timezone math, weekly rule expansion, calendar grids | ✅ |
-| [`@apiary-dev/postgres`](packages/postgres) | PostgreSQL adapter implementing the core `BookingRepository` port | ✅ |
-| [`@apiary-dev/server`](packages/server) | Transport-agnostic scheduling operations (slots, holds, confirmations) | ✅ |
-| `@apiary-dev/client` | Typed fetch SDK | 🚧 planned |
-| `@apiary-dev/solid` | SolidJS calendar & booking widgets | 🚧 planned |
+| Package                                     | Description                                                                                                   | Status     |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ---------- |
+| [`@apiary-dev/core`](packages/core)         | Pure domain logic: slot generation, buffers, collisions, timezone math, weekly rule expansion, calendar grids | ✅         |
+| [`@apiary-dev/postgres`](packages/postgres) | PostgreSQL adapter implementing the core `BookingRepository` port                                             | ✅         |
+| [`@apiary-dev/server`](packages/server)     | Transport-agnostic scheduling operations (slots, holds, confirmations)                                        | ✅         |
+| `@apiary-dev/client`                        | Typed fetch SDK                                                                                               | 🚧 planned |
+| `@apiary-dev/solid`                         | SolidJS calendar & booking widgets                                                                            | 🚧 planned |
 
 ## Quick start
 

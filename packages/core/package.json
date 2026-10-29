@@ -1,6 +1,6 @@
 {
   "name": "@apiary-dev/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Apiary core: zero-dependency, framework-agnostic scheduling domain logic",
   "license": "ISC",
   "type": "module",
