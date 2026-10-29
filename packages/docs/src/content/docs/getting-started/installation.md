@@ -48,9 +48,21 @@ pnpm add @apiary-dev/postgres pg
 Then apply the migration and pass a `pg.Pool` to the repository. See the
 [PostgreSQL guide](guides/postgres/) for the full setup.
 
+## `@apiary-dev/server`
+
+The transport-agnostic operations package. Pair it with an adapter such as
+`@apiary-dev/postgres`:
+
+```bash
+pnpm add @apiary-dev/server
+```
+
+See the [Server Operations guide](guides/server-integration/) for wiring it into
+your framework.
+
 ## ESM and CJS
 
-Both packages are authored in TypeScript with `moduleResolution: "nodenext"`
+All packages are authored in TypeScript with `moduleResolution: "nodenext"`
 and published as dual ESM/CJS with bundled type declarations, so no special
 transpilation is required in consumers.
 

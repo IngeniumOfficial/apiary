@@ -37,7 +37,7 @@ bundled ESM/CJS with type declarations.
 | --- | --- | --- |
 | [`@apiary-dev/core`](reference/core/) | ✅ Implemented | Pure domain logic: types, slot generation, collision and buffer math, weekly rule expansion, timezone conversions, calendar grids. Zero runtime dependencies. |
 | [`@apiary-dev/postgres`](reference/postgres/) | ✅ Implemented | PostgreSQL adapter implementing the core `BookingRepository` port with database-level race protection. |
-| `@apiary-dev/server` | Planned | Web-standard `Request` → `Response` dispatcher for `/slots`, `/holds`, `/bookings`. |
+| [`@apiary-dev/server`](reference/server/) | ✅ Implemented | Transport-agnostic operations that bind a `BookingRepository` to the core engine: slot generation, availability checks, holds, and confirmations. |
 | `@apiary-dev/client` | Planned | Typed fetch SDK for the server endpoints. |
 | `@apiary-dev/solid` | Planned | Unstyled SolidJS calendar and booking widgets. |
 
@@ -59,7 +59,7 @@ never needs to know which model you use. See the
 
 ## Framework-agnostic and web-standard
 
-Apiary relies only on standard APIs: `Date`, `Intl`, and — for the planned
-server layer — `Request`, `Response`, and `fetch`. It works in Node.js, Deno,
-Bun, Cloudflare Workers, and any framework that speaks HTTP: Next.js, Astro,
-SolidStart, Hono, and more.
+Apiary relies only on standard APIs such as `Date` and `Intl`. The server
+operations are plain functions, so they work in Node.js, Deno, Bun, Cloudflare
+Workers, and inside any framework — Next.js, Astro, SolidStart, Hono, Express,
+and more — without a router or adapter.

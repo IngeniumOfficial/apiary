@@ -43,6 +43,7 @@ export default defineConfig({
             { label: "Timezones & DST", slug: "guides/timezones" },
             { label: "Calendar Views", slug: "guides/calendar-views" },
             { label: "PostgreSQL Adapter", slug: "guides/postgres" },
+            { label: "Server Operations", slug: "guides/server-integration" },
           ],
         },
         {
@@ -50,6 +51,7 @@ export default defineConfig({
           items: [
             { label: "@apiary-dev/core", slug: "reference/core" },
             { label: "@apiary-dev/postgres", slug: "reference/postgres" },
+            { label: "@apiary-dev/server", slug: "reference/server" },
           ],
         },
       ],

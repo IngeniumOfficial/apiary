@@ -146,6 +146,18 @@ interface BookingRepository {
 }
 ```
 
+## Domain errors
+
+```ts
+class BookingConflictError extends Error;
+class ValidationError extends Error;
+```
+
+`BookingConflictError` is thrown by adapters (such as `@apiary-dev/postgres`)
+when a hold or confirmation overlaps an existing booking or hold.
+`ValidationError` is thrown by helpers (such as `parseSlotsQuery`) on invalid
+input.
+
 ## Functions
 
 ### `generateTimeSlots`

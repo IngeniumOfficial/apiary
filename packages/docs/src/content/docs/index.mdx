@@ -57,3 +57,5 @@ Availability flows through two pure steps:
 2. **Slots** — `generateTimeSlots` carves a window into candidate slots, then marks each one `available` or not by applying buffers, minimum notice, the booking horizon, and collisions with existing bookings and holds.
 
 The [PostgreSQL adapter](guides/postgres/) turns this into a full booking backend with atomic holds and confirmation, while the pure core stays framework- and storage-agnostic.
+
+The [`@apiary-dev/server`](guides/server-integration/) package binds a `BookingRepository` to these steps, exposing transport-agnostic operations (`getSlots`, `isRangeAvailable`, `createHold`, `confirmBooking`) you can call from any framework — no router or adapter required.

@@ -103,6 +103,8 @@ Thrown when an operation conflicts with an existing booking or hold:
   violation, SQLSTATE `23P01`)
 - `confirmBooking` with a missing or expired hold
 
+It is defined in `@apiary-dev/core` and re-exported here for convenience.
+
 It is the single, typed signal for "that slot is no longer available" and maps
 naturally to a `409 Conflict` in an HTTP layer. Unrelated database errors are
 rethrown unchanged.
